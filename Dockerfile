@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:trusty
 
 MAINTAINER Leonardo Luduena <lleo@linux.com>
 
