@@ -12,4 +12,4 @@ RUN apt-get update && \
 RUN mkdir -p /opt/ubuntu
 ENV HOME /opt/ubuntu
 WORKDIR /opt/ubuntu
-VOLUME ["/etc", "/var/log"]
+VOLUME ["/etc", "/var/log", "/home", "/root"]
