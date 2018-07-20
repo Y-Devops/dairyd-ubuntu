@@ -2,7 +2,7 @@ FROM ubuntu:xenial
 
 MAINTAINER Leonardo Luduena <lleo@linux.com>
 
-ENV REFRESHED_AT 2018-05-01
+ENV REFRESHED_AT 2018-07-01
 
 RUN apt-get update && \
     apt-get upgrade -y && \
