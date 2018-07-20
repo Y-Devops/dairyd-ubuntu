@@ -1,0 +1,24 @@
+sudo: required
+
+language: ruby
+
+services:
+- docker
+
+env:
+  global:
+  - COMMIT=${TRAVIS_COMMIT::8}
+  - REPO=dairyd/ubuntu
+  - secure: LREbO8C87nBXuHoD6EShcAGLB2Tl7u7/g0YcFgiyN+56Kxhbpbc0w+8v4PY63RnKxH1UiA+wWN6ZVpdc5sKkvZPSoD73KYImNgO+VCy8m7KQFBNb1C4F5PGmH9MJ0YKlTBcIA+f5W/lC9I2ZeSxWVGUuOmqWRIX3/xuB5alP/5yKruhdT9hHKSxcCln31KB8t3QApxROHfXKE90cnvz/ZDSQIT3jpF7P7zFtekRy60VdrkA28vf+Q07NiVL7DZ20kazSBpFKXsY1LaM10tHhmzqTTUzCuAU6PWp1t37PKtYLxMNXpwT2z+a+lmkbuzAazL9f8/YGKx83yeI6KVoRCZAKmcTOFPWomIMZhe/PQSv9loUM7rdAqw0gy11PQDMW6ar1tI3imYZsadbJGacCvhWzZiKI6IR6yYZ2Unx9MahcMGFp7WtqlRDBbVXvlWd8LsW3rg4Rr8dyesB+uTx5gVYw2KFy7k0ds0ioHG+VFwl1LU1jjOLvyuUK8UHhAIOtJJrxbfB4K8d0Dmye7g+aPg9lbvMrsaH74R42jfL+kulPXoMlkZRhoNCv3i5SUr+mMALeI4nFny4HvWWEYQ1mzm30iSEd4ts5F7ERi4VTKWHFPPnTsDjTt/QAsrfht+pyLjKkWXmZPmMRHLZbw92EXVgvz1tqwldJQ2dJSZCDUFo=
+  - secure: N27VWW6v/WVB5ZVp03AoIu2yHCBKgo1TYQFziCDqW8YrS0h929UsUeoHCi8YiTpUAFdLmLtjVVPtTOpncTehT/SMv9JWs7cimK6a+sXJ0RbtBoAFjEJsSxPJt4Kph8HNSGhsacSWo25fsy6ueO/pZ1U0tF5aF7N674eVVUx1MXjYFeaJ5oDmYBF6yxbXnAhzONgAwLqQazSyBgAmU1/yBPCrIpmLKDl5V/ygpQ4xyU3CSSyx8/lKsAi5fdZXOxMYYIBiUUlikJtn5/G9tg3B++rSnSigEraNRNFv8tAF9txtSFpDNEbQEoiTmOEUeW1239q53YDRfpmErlGasZxufUxa6Bzg96PEo/GdIhMxI/dPKI3XZT0vXt0sj1ItLHpBFBAyXelyZQ/hb2r39HfkvqAdwvQFMH0AQu1s3hkw/odkr3/akb8TjiScw/Z3TxLADi7ADcFdF9J4/XmKVRnMY6KpTh4RdgiC41pAsWqY2l438dYMmnE7SS5zHR7fuJGqM+z3Gjp4v0qw/XE/zr84jyU8+OPv4gBcI7gFLwM2pABvpOCusRJqmPmwNSdTWTGxrKH8OEaxQ/H5qNsoVOCmmx+BkmWLmna1zlQB6+KHgY0USXKmMUISCFFTVI7wIIzgE0romqTn2L/QKyklEdfsfMen0PbpWI2p2iXeHhBwVVg=
+  - secure: OlDrF0no+sx7sS/bi7hjQ70BbytzTWU7dIlTcpUCD7oF9eQX+IESRjv6CagNycwmD1bZAKdV+FzZ5QPR8cNYLERqbWR4FB294LmwYS4t8NjprxsRWuTijVO9UqKwjUslBmYmG1PmFYvQFktkJtdPpLs1z6N+iVwe4ao3aW85aSSTfh8ex4I7C7gLydMpfdutjlhg4NQnnslJdEVV7PyhUdZ7aUfhkhe1627x4qtJhXHbd/Tzxhy66E6t1qF53NHYX7cRcGpp2cobGzLGrYppoH00EXelR8kEXRZYlEp+XeweJEym59jcU73N4VfWf6kiN496zrvHS3PkdyrBQg8eme5MlI0d9LTlADbu4c1Yt1gnPWanRJkKCUU1qqw6SYKeOPG+6vS5eddBES252uE1HI4GXruLDhKJ+WXSpLW1YqUmjlwtWkyPrBmxbO/QwOVO+0G3Swbk32x9o8IteympoNY9KG/sfDlX8eIccfWtUJp29P7H6XYC5E13YieG4EA6NfOdcQndFwwipj2Ld8L1iEAZIJ0DxHBiVmIan7XUuEDzVSSweyD7xRvpPOcEqQuJ9sIR9ZVcxFjmyl/twt6fg+D3mmlcjp92zymzbH3GkMPSznlaScbU71o4bAq1AzcFyDtNrrGfUKgi3gqteQ0hSLjtiC4GkDp+S2zlwhbkSf4=
+
+script:
+- export TAG=`if [[ $TRAVIS_PULL_REQUEST == "false" ]] && [[ $TRAVIS_BRANCH == "master"
+  ]]; then echo "bionic"; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi`
+- export REPO=dairyd/ubuntu
+- docker build -t $REPO:$TAG -f Dockerfile .
+
+after_success:
+- docker login -u $DOCKER_USER -p $DOCKER_PASS
+- docker push $REPO:$TAG
