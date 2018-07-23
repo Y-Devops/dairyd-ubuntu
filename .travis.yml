@@ -10,8 +10,7 @@ env:
   - secure: BMO5N2Q/qL8HWCZSBwPEaVfQ4X5lw5fJlQuRSEh0VxIfqCV73Io8KBheSV4DFXACgdt8ZkspAv1o3j5VIb5Lq+NFGfQ5wFF9MSApd3wHIMlgh/UKQgeuX2EO82npGWEE4O66Ze6bkc3dmF57j6hG+w/BUGjT+vVZUd8la13FlyzlbwaWdKFIt/7Hjyd8YJGiSVvnTO5LIv0YT9msJurXqwZgn9Tg2sDDoJ3kXpohFP9CWp3cO6Y+ncFtA9pJoi8eD2DAKYvynObKnlztumUxZ8apbiZKVZcdjQ4/XZ+Q2etVjiMAGBZOvOmKn9+5lQ2yFaeb0hoEvBIe5gW8/Ig7dFtEUiKZEfWoBifuJEsPhBrI1iMTcCgWC/xkqbcSy1EzxKo5L1RtwKYEi9me+1AIBiuy++nzQ4n6GNskzKrfZq5Vllbn4QNqVs0/bANNRRJkUC2XjeyFNBjDMg1wIcJ4rZ8NxwEYm4I+Lgd72J2ivTjXFds4dePnDgLnmvVOjC+89YNW6gWWqG/7C2Sk4rOZyPbq9VY9YStEtlQEo+VcXtiGkmmi/RgmJCJj8LvN7XhmIbrvpkcwImNomwr3NrNmGNq+eog6/CgZrqcJO4gFmR7AQvTUL0ca324AHJZlZGMSrctDVmn2uKhZYinHzaTQQUtImMn+nccnm0Ren92fBZg=
 
 script:
-- export TAG=`if [[ $TRAVIS_PULL_REQUEST == "false" ]] && [[ $TRAVIS_BRANCH == "master"
-  ]]; then echo "bionic"; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi`
+- export TAG=`if [[ $TRAVIS_PULL_REQUEST == "false" ]] && [[ $TRAVIS_BRANCH == "master" ]]; then echo "bionic"; else echo $TRAVIS_BRANCH; fi`
 - export REPO=dairyd/ubuntu
 - docker build -t $REPO:$TAG -f Dockerfile .
 
