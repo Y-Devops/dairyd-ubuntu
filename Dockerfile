@@ -1,7 +1,7 @@
 FROM ubuntu:bionic
 MAINTAINER Leo Luduena <lleo@linux.com>
 
-ENV REFRESHED_AT 2018-07-30
+ENV REFRESHED_AT 2018-08-28
 
 RUN apt-get update && \
     apt-get upgrade -y && \
