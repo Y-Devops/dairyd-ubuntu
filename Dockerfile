@@ -1,7 +1,7 @@
 FROM ubuntu:bionic
-MAINTAINER Leo Luduena <lleo@linux.com>
+MAINTAINER Yungas DevOps <devops@yungas.co>
 
-ENV REFRESHED_AT 2018-08-28
+ENV REFRESHED_AT 2018-12-10
 
 RUN apt-get update && \
     apt-get upgrade -y && \
