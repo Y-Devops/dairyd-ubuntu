@@ -9,6 +9,6 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /opt/server
-ENV HOME /opt/ubuntu
+ENV HOME /opt/server
 WORKDIR /opt/ubuntu
 VOLUME ["/etc", "/var/log", "/home", "/root"]
