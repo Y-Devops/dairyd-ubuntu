@@ -10,5 +10,5 @@ RUN apt-get update && \
 
 RUN mkdir -p /opt/server
 ENV HOME /opt/server
-WORKDIR /opt/ubuntu
+WORKDIR /opt/server
 VOLUME ["/etc", "/var/log", "/home", "/root"]
