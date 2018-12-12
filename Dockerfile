@@ -2,7 +2,7 @@ FROM ubuntu:trusty
 
 LABEL maintainer="devops@yungas.co"
 
-ENV REFRESHED_AT 2018-07-01
+ENV REFRESHED_AT 2018-12-12
 
 RUN apt-get update && \
     apt-get upgrade -y && \
