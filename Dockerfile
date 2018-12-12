@@ -1,6 +1,6 @@
 FROM ubuntu:xenial
 
-MAINTAINER Leonardo Luduena <lleo@linux.com>
+LABEL maintainer="devops@yungasdevops.co"
 
 ENV REFRESHED_AT 2018-07-01
 
