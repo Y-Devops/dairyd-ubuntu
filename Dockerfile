@@ -1,5 +1,5 @@
 FROM ubuntu:bionic
-MAINTAINER Yungas DevOps <devops@yungas.co>
+LABEL maintainer="devops@yungas.co"
 
 ENV REFRESHED_AT 2018-12-10
 
