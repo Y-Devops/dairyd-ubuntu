@@ -1,7 +1,7 @@
 FROM ubuntu:bionic
 LABEL maintainer="devops@yungas.co"
 
-ENV REFRESHED_AT 2018-12-10
+ENV REFRESHED_AT 2018-12-12
 
 RUN apt-get update && \
     apt-get upgrade -y && \
