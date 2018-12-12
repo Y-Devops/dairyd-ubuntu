@@ -1,6 +1,6 @@
 FROM ubuntu:trusty
 
-MAINTAINER Leonardo Luduena <lleo@linux.com>
+LABEL maintainer="devops@yungas.co"
 
 ENV REFRESHED_AT 2018-07-01
 
