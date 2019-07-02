@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:disco
 
 LABEL maintainer="24.7@yungasdevops.com"
 
