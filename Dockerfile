@@ -5,8 +5,8 @@ LABEL maintainer="7of9@yungasdevops.com"
 ENV REFRESHED_AT 2019-08-01
 
 RUN apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y --no-install-recommends apt-utils ca-certificates curl debconf-utils nano wget && \
+    DEBIAN_FRONTEND=noninteractive apt-get upgrade -y && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends apt-utils ca-certificates curl debconf-utils nano wget && \
     rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /opt/server
