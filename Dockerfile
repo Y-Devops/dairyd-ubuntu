@@ -1,6 +1,6 @@
 FROM ubuntu:disco
 
-LABEL maintainer="24.7@yungasdevops.com"
+LABEL maintainer="7of9@yungasdevops.com"
 
 ENV REFRESHED_AT 2019-08-01
 
