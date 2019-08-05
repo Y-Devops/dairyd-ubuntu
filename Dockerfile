@@ -1,8 +1,8 @@
 FROM ubuntu:bionic
 
-LABEL maintainer="7of9@yungasdevops.com"
+LABEL maintainer="7of9@ydevops.com"
 
-ENV REFRESHED_AT 2019-08-01
+ENV REFRESHED_AT 2019-08-05
 
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get upgrade -y && \
