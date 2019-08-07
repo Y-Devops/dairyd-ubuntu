@@ -1,6 +1,8 @@
 FROM ubuntu:bionic
+ARG BUILD_DATE
 
 LABEL maintainer="7of9@ydevops.com"
+LABEL org.label-schema.build-date=$BUILD_DATE
 
 ENV REFRESHED_AT 2019-08-05
 
