@@ -4,7 +4,7 @@ ARG BUILD_DATE
 LABEL maintainer="7of9@ydevops.com"
 LABEL org.label-schema.build-date=$BUILD_DATE
 
-ENV REFRESHED_AT 2019-10-10
+ENV REFRESHED_AT 2020-03-22
 
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get upgrade -y && \
