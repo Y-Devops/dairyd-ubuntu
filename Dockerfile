@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:eoan
 ARG BUILD_DATE
 
 LABEL maintainer="7of9@ydevops.com"
