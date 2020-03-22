@@ -1,4 +1,4 @@
-FROM ubuntu:eoan
+FROM ubuntu:focal
 ARG BUILD_DATE
 
 LABEL maintainer="7of9@ydevops.com"
